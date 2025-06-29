@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Interactivo de CSS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div id="welcome-banner" class="welcome-banner">
+        <span id="welcome-message"></span>
+        <button id="close-welcome-banner" title="Cerrar">×</button>
+    </div>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fab fa-css3-alt logo-icon"></i>
+                <span>Brothers</span>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#introduccion" class="nav-link"><i class="fas fa-home"></i> Introducción</a></li>
+                <li><a href="#sintaxis" class="nav-link"><i class="fas fa-code"></i> Sintaxis</a></li>
+                <li><a href="#selectores" class="nav-link"><i class="fas fa-bullseye"></i> Selectores</a></li>
+                <li><a href="#especificidad" class="nav-link"><i class="fas fa-medal"></i> Especificidad</a></li>
+                <li><a href="#colores-fondos" class="nav-link"><i class="fas fa-palette"></i> Colores</a></li>
+                <li><a href="#variables-css" class="nav-link"><i class="fas fa-sliders-h"></i> Variables CSS</a></li>
+                <li><a href="#modelo-caja" class="nav-link"><i class="fas fa-box"></i> Modelo de Caja</a></li>
+                <li><a href="#texto-fuentes" class="nav-link"><i class="fas fa-font"></i> Texto y Fuentes</a></li>
+                <li><a href="#unidades" class="nav-link"><i class="fas fa-ruler-combined"></i> Unidades en CSS</a></li>
+                <li><a href="#display" class="nav-link"><i class="fas fa-object-group"></i> Display</a></li>
+                <li><a href="#position" class="nav-link"><i class="fas fa-map-marker-alt"></i> Posicionamiento</a></li>
+                <li><a href="#flexbox" class="nav-link"><i class="fas fa-th-large"></i> Flexbox</a></li>
+                <li><a href="#grid-layout" class="nav-link"><i class="fas fa-border-all"></i> CSS Grid</a></li>
+                <li><a href="#pseudo" class="nav-link"><i class="fas fa-magic"></i> Pseudo-Clases/Elementos</a></li>
+                <li><a href="#transiciones" class="nav-link"><i class="fas fa-exchange-alt"></i> Transiciones</a></li>
+                <li><a href="#animaciones" class="nav-link"><i class="fas fa-rocket"></i> Animaciones CSS</a></li>
+                <li><a href="#responsive" class="nav-link"><i class="fas fa-mobile-alt"></i> Diseño Responsive</a></li>
+                <li><a href="#practica" class="nav-link"><i class="fas fa-vial"></i> ¡A Practicar!</a></li>
+                <li><a href="#proyecto-final" class="nav-link"><i class="fas fa-check-circle"></i> Proyecto Final</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <header class="main-header">
+            <div class="header-content">
+                <i class="fab fa-css3-alt header-logo-main"></i>
+                <h1>Manual Interactivo de CSS</h1>
+                <p>Domina los fundamentos y construye tu primera página web estilizada.</p>
+            </div>
+        </header>
+
+      <!-- Introducción -->
+      <section id="introduccion" class="manual-section">
+        <h2><i class="fas fa-home"></i> Introducción a CSS</h2>
+        <p>CSS (Cascading Style Sheets) es el lenguaje utilizado para definir el estilo y la presentación de documentos HTML. Permite controlar colores, fuentes, layouts, animaciones y mucho más, transformando estructuras HTML simples en experiencias visuales atractivas y funcionales.</p>
+        <p>En este manual, aprenderás los fundamentos de CSS paso a paso. Cada sección incluye teoría detallada, ejemplos prácticos y un proyecto final donde construirás una <strong>tarjeta de perfil</strong> estilizada, aplicando todos los conceptos aprendidos.</p>
+        <h4>¿Qué es una tarjeta de perfil?</h4>
+        <p>Una tarjeta de perfil es un componente común en sitios web que muestra información personal, como nombre, título, biografía, enlaces sociales y un botón de contacto, todo presentado de manera visualmente atractiva. Este será nuestro proyecto práctico.</p>
+        <h4>Estructura HTML base de la tarjeta:</h4>
+        <div class="code-example">
+            <pre><code>
+&lt;div class="profile-card"&gt;
+&lt;img src="https://i.pravatar.cc/150?u=cssmanual" alt="Foto de Perfil" class="profile-pic"&gt;
+&lt;h3 class="profile-name"&gt;Tu Nombre Aquí&lt;/h3&gt;
+&lt;p class="profile-title"&gt;Desarrollador Web&lt;/p&gt;
+&lt;p class="profile-bio"&gt;Apasionado por la tecnología y el diseño. Siempre aprendiendo.&lt;/p&gt;
+&lt;div class="profile-social-links"&gt;
+&lt;a href="#" aria-label="LinkedIn"&gt;&lt;i class="fab fa-linkedin"&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href="#" aria-label="GitHub"&gt;&lt;i class="fab fa-github"&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href="#" aria-label="Twitter"&gt;&lt;i class="fab fa-twitter"&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;button class="profile-contact-btn"&gt;Contactar&lt;/button&gt;
+&lt;/div&gt;
+            </code></pre>
+            <button class="copy-btn" title="Copiar código"><i class="fas fa-copy"></i> Copiar</button>
+        </div>
+        <p><strong>Objetivo:</strong> Aplicaremos estilos a esta estructura HTML en cada sección, culminando en una tarjeta de perfil completa en el proyecto final.</p>
+    </section>
+
+    <!-- Sintaxis Básica -->
+    <section id="sintaxis" class="manual-section">
+        <h2><i class="fas fa-code"></i> Sintaxis Básica de CSS</h2>
+        <p>Una regla CSS está compuesta por un <strong>selector</strong> y un bloque de declaraciones. El selector indica qué elementos HTML se estilizarán, mientras que las declaraciones especifican las propiedades y sus valores.</p>
+        <h4>Estructura de una regla CSS:</h4>
+        <p><code>selector { propiedad: valor; }</code></p>
+        <ul>
+            <li><strong>Selector</strong>: Identifica el elemento HTML (ej. <code>body</code>, <code>.clase</code>, <code>#id</code>).</li>
+            <li><strong>Propiedad</strong>: Define qué aspecto se modificará (ej. <code>color</code>, <code>font-size</code>).</li>
+            <li><strong>Valor</strong>: Especifica cómo se aplicará la propiedad (ej. <code>blue</code>, <code>16px</code>).</li>
+        </ul>
+        <h4>Ejemplo aplicado a la tarjeta:</h4>
+        <div class="code-example">
+            <pre><code>
+/* Estilo base para el cuerpo del documento */
+body {
+  font-family: Arial, sans-serif; /* Define la fuente general */
+  margin: 0; /* Elimina márgenes por defecto */
+  background-color: #f4f4f4; /* Fondo gris claro */
+}
+
+/* Estilo inicial para la tarjeta de perfil */
+.profile-card {
+  background-color: white; /* Fondo blanco para la tarjeta */
+  padding: 20px; /* Espacio interno */
+}
+            </code></pre>
+            <button class="copy-btn" title="Copiar código"><i class="fas fa-copy"></i> Copiar</button>
+        </div>
+        <p><strong>Buenas prácticas:</strong></p>
+        <ul>
+            <li>Usa comentarios para organizar tu CSS (<code>/* Esto es un comentario */</code>).</li>
+            <li>Mantén los selectores específicos pero no overly-specific para evitar conflictos y facilitar el mantenimiento.</li>
+            <li>Prefiere nombres de clases descriptivos y consistentes (ej. <code>.nombre-componente__elemento--modificador</code> con BEM).</li>
+        </ul>
+    </section>
+
+    <!-- Selectores -->
+    <section id="selectores" class="manual-section">
+        <h2><i class="fas fa-bullseye"></i> Selectores en CSS</h2>
+        <p>Los selectores son la base de CSS, ya que determinan qué elementos HTML recibirán los estilos. Existen varios tipos de selectores, cada uno con un propósito específico.</p>
+        <h4>Tipos de selectores comunes:</h4>
+        <ul>
+            <li><strong>Selector de elemento/tipo</strong>: Aplica estilos a todos los elementos de un tipo (ej. <code>p</code>, <code>h3</code>, <code>div</code>).</li>
+            <li><strong>Selector de clase</strong>: Aplica estilos a elementos con una clase específica (ej. <code>.profile-name</code>). Es el más versátil y reutilizable.</li>
+            <li><strong>Selector de ID</strong>: Aplica estilos a un único elemento con un ID específico (ej. <code>#miElementoUnico</code>). Debe ser único por página.</li>
+            <li><strong>Selector de atributo</strong>: Aplica estilos a elementos basados en sus atributos (ej. <code>input[type="text"]</code>, <code>a[target="_blank"]</code>).</li>
+            <li><strong>Selector descendiente</strong>: Aplica estilos a elementos dentro de otro elemento (ej. <code>.profile-social-links a</code>).</li>
+            <li><strong>Selector de hijo directo</strong>: Aplica estilos a hijos directos de un elemento (ej. <code>ul > li</code>).</li>
+            <li><strong>Selector adyacente</strong>: Aplica estilos al elemento que sigue inmediatamente a otro (ej. <code>h2 + p</code>).</li>
+            <li><strong>Selector general de hermanos</strong>: Aplica estilos a todos los hermanos que siguen a un elemento (ej. <code>h2 ~ p</code>).</li>
+            <li><strong>Selector universal</strong>: Aplica estilos a todos los elementos (<code>*</code>, usado con precaución, a menudo para resets).</li>
+            <li><strong>Agrupación de selectores</strong>: Aplica los mismos estilos a múltiples selectores (ej. <code>h1, h2, h3 { color: navy; }</code>).</li>
+        </ul>
+        <h4>Ejemplo aplicado a la tarjeta:</h4>
+        <div class="code-example">
+            <pre><code>
+/* Selector de clase para el nombre */
+.profile-name {
+  color: #333; /* Texto oscuro */
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+/* Selector de clase para el título */
+.profile-title {
+  color: #777; /* Texto gris */
+  font-size: 0.9em;
+  margin-bottom: 15px;
+}
+
+/* Selector descendiente para los íconos dentro de los enlaces sociales */
+.profile-social-links a i {
+  font-size: 1.2em; /* Tamaño de los íconos */
+}
+            </code></pre>
+            <button class="copy-btn" title="Copiar código"><i class="fas fa-copy"></i> Copiar</button>
+        </div>
+        <p><strong>Nota:</strong> Los selectores de clase son ideales para la tarjeta de perfil porque permiten reutilizar estilos y mantener el código modular.</p>
+    </section>
+
+    <!-- Especificidad -->
+    <section id="especificidad" class="manual-section">
+        <h2><i class="fas fa-medal"></i> Especificidad en CSS</h2>
+        <p>La especificidad determina qué regla CSS se aplica a un elemento cuando varias reglas podrían afectarlo. El navegador calcula un "peso" para cada selector; el de mayor peso gana.</p>
+        <h4>Jerarquía de Especificidad (de mayor a menor):</h4>
+        <ol>
+            <li><strong>Estilos en línea (Inline styles)</strong>: Atributo <code>style</code> en HTML (ej. <code><p style="color: red;"></code>). <em>(Peso: 1,0,0,0)</em></li>
+            <li><strong>Selectores de ID</strong>: (ej. <code>#miId</code>). <em>(Peso: 0,1,0,0)</em></li>
+            <li><strong>Selectores de Clase, Atributo y Pseudo-clase</strong>: (ej. <code>.miClase</code>, <code>[type="text"]</code>, <code>:hover</code>). <em>(Peso: 0,0,1,0)</em></li>
+            <li><strong>Selectores de Tipo y Pseudo-elemento</strong>: (ej. <code>p</code>, <code>div</code>, <code>::before</code>). <em>(Peso: 0,0,0,1)</em></li>
+        </ol>
+        <p>El selector universal (<code>*</code>) y los combinadores (<code>+</code>, <code>></code>, <code>~</code>, ' ') no añaden especificidad por sí mismos.</p>
+        <h4><code>!important</code></h4>
+        <p>La declaración <code>!important</code> anula cualquier otra declaración, sin importar la especificidad. Sin embargo, debe usarse con extrema precaución, ya que puede dificultar el mantenimiento del CSS. Es preferible lograr el resultado deseado ajustando la especificidad de los selectores.</p>
+        <h4>Ejemplo de cálculo (conceptual):</h4>
+        <div class="code-example">
+            <pre><code>
+body #content .mi-lista li.activo a:hover { /* Especificidad alta */
+  /* Cálculo (simplificado):
+     ID (#content): 1
+     Clases (.mi-lista, .activo): 2
+     Pseudo-clase (:hover): 1
+     Elementos (body, li, a): 3
+     Total aproximado: 0,1,3,3 (en formato ID, CLASES/ATTR/PSEUDO, ELEMENTOS/PSEUDO-ELEM)
+  */
+  color: green;
+}
+
+li.activo a { /* Especificidad menor */
+  /* Cálculo (simplificado):
+     Clase (.activo): 1
+     Elementos (li, a): 2
+     Total aproximado: 0,0,1,2
+  */
+  color: blue;
+}
+            </code></pre>
+            <button class="copy-btn" title="Copiar código"><i class="fas fa-copy"></i> Copiar</button>
+        </div>
+        <p><strong>Consejo:</strong> Intenta mantener la especificidad lo más baja y consistente posible. Evita usar IDs para estilizar si no es estrictamente necesario y usa <code>!important</code> solo como último recurso.</p>
+    </section>
+
+    <!-- Colores y Fondos -->
+    <section id="colores-fondos" class="manual-section">
+        <h2><i class="fas fa-palette"></i> Colores y Fondos</h2>
+        <p>Los colores y fondos en CSS definen la apariencia visual de los elementos. Puedes usar nombres de colores, códigos HEX, RGB, RGBA, HSL, HSLA para personalizar texto, fondos y bordes.</p>
+        <h4>Propiedades principales:</h4>
+        <ul>
+            <li><code>color</code>: Define el color del texto.</li>
+            <li><code>background-color</code>: Define el color de fondo de un elemento.</li>
+            <li><code>background-image</code>: Permite usar imágenes como fondo (ej. <code>url('imagen.jpg')</code>).</li>
+            <li><code>background-repeat</code>: Controla si la imagen de fondo se repite.</li>
+            <li><code>background-position</code>: Define la posición inicial de la imagen de fondo.</li>
+            <li><code>background-size</code>: Define el tamaño de la imagen de fondo (ej. <code>cover</code>, <code>contain</code>).</li>
+            <li><code>border</code>: Propiedad abreviada para definir bordes (ej. <code>1px solid #ccc</code>). Incluye <code>border-width</code>, <code>border-style</code>, y <code>border-color</code>.</li>
+            <li><code>opacity</code>: Define la opacidad de un elemento (de 0.0 a 1.0).</li>
+        </ul>
+        <h4>Ejemplo aplicado a la tarjeta:</h4>
+        <div class="code-example">
+            <pre><code>
+.profile-card {
+  background-color: white; /* Fondo blanco */
+  border: 1px solid #ddd; /* Borde gris claro */
+  /* Podríamos añadir una imagen de fondo sutil: */
+  /* background-image: url('textura-sutil.png'); */
+  /* background-repeat: repeat; */
+}
+
+.profile-contact-btn {
+  background-color: #3498db; /* Azul brillante (HEX) */
+  color: white; /* Texto blanco (nombre de color) */
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+/* Ejemplo con RGBA para un color con transparencia */
+.profile-title {
+  color: rgba(0, 0, 0, 0.6); /* Negro con 60% de opacidad */
+}
+            </code></pre>
+            <button class="copy-btn" title="Copiar código"><i class="fas fa-copy"></i> Copiar</button>
+        </div>
+        <p><strong>Consejo:</strong> Usa colores que contrasten bien para garantizar legibilidad (WCAG). Herramientas online pueden ayudarte a verificar el contraste.</p>
+    </section>
+
+    <!-- Variables CSS -->
+    <section id="variables-css" class="manual-section">
+        <h2><i class="fas fa-sliders-h"></i> Variables CSS (Custom Properties)</h2>
+        <p>Las Variables CSS, también conocidas como Custom Properties, permiten definir valores reutilizables en tus hojas de estilo. Esto facilita la gestión de temas, la consistencia y los cambios globales.</p>
+        <h4>Sintaxis:</h4>
+        <ul>
+            <li><strong>Definición:</strong> Se definen con un prefijo de dos guiones (<code>--</code>) y son sensibles a mayúsculas/minúsculas. Generalmente se definen en el selector <code>:root</code> para que estén disponibles globalmente.
+                <br><code>:root { --color-primario: #3498db; --fuente-base: 16px; }</code></li>
+            <li><strong>Uso:</strong> Se acceden usando la función <code>var()</code>.
+                <br><code>.elemento { color: var(--color-primario); font-size: var(--fuente-base); }</code></li>
+            <li><strong>Valor por defecto (fallback):</strong> <code>var()</code> puede tomar un segundo argumento como valor por defecto si la variable no está definida.
+                <br><code>.elemento { color: var(--color-no-definido, black); }</code></li>
+        </ul>
+        <h4>Beneficios:</h4>
+        <ul>
+            <li><strong>Mantenibilidad:</strong> Cambia un valor en un solo lugar y se actualiza en todas partes.</li>
+            <li><strong>Legibilidad:</strong> Nombres descriptivos para valores (ej. <code>--color-texto-principal</code> en lugar de <code>#333</code>).</li>
+            <li><strong>Tematización:</strong> Facilita la creación de diferentes temas (ej. modo claro/oscuro) cambiando las variables.</li>
+            <li><strong>Cascada y Herencia:</strong> Las variables se heredan y pueden ser redefinidas en selectores más específicos.</li>
+        </ul>
+        <h4>Ejemplo aplicado a la tarjeta:</h4>
+        <div class="code-example">
+            <pre><code>
+:root {
+  --card-bg-color: white;
+  --card-border-color: #ddd;
+  --card-text-color: #333;
+  --card-title-color: #777;
+  --button-bg-color: #3498db;
+  --button-text-color: white;
+  --profile-pic-border: #fff;
+}
+
+.profile-card {
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--card-border-color);
+  color: var(--card-text-color);
+  /* ... otros estilos ... */
+}
+
+.profile-title {
+  color: var(--card-title-color);
+}
+
+.profile-contact-btn {
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+}
+
+.profile-pic {
+    border: 3px solid var(--profile-pic-border);
+}
+            </code></pre>
+            <button class="copy-btn" title="Copiar código"><i class="fas fa-copy"></i> Copiar</button>
+        </div>
+        <p><strong>Nota:</strong> Las variables CSS pueden ser manipuladas con JavaScript, lo que abre posibilidades para interactividad y personalización dinámica por el usuario.</p>
+    </section>
+
+    <!-- Modelo de Caja -->
+    <section id="modelo-caja" class="manual-section">
+        <h2><i class="fas fa-box"></i> Modelo de Caja</h2>
+        <p>El modelo de caja de CSS describe cómo se calcula el tamaño y espaciado de los elementos HTML. Cada elemento se considera una "caja" con las siguientes capas: contenido, padding, borde y margen.</p>
+        <h4>Componentes del modelo de caja:</h4>
+        <img src="image.png" alt="Diagrama del Modelo de Caja de CSS" style="max-width: 100%; height: auto; margin-bottom: 15px; border: 1px solid #eee;">
+        <ul>a
+            <li><strong>Contenido (Content)</strong>: El área donde se muestra el texto, imágenes, etc. Sus dimensiones son <code>width</code> y <code>height</code>.</li>
+            <li><strong>Padding (Relleno)</strong>: Espacio transparente interno entre el contenido y el borde.</li>
+            <li><strong>Border (Borde)</strong>: Línea que rodea el padding. Tiene grosor, estilo y color.</li>
+            <li><strong>Margin (Margen)</strong>: Espacio transparente externo alrededor del borde, que separa el elemento de otros.</li>
+        </ul>
+        <h4><code>box-sizing</code>:</h4>
+        <p>La propiedad <code>box-sizing</code> controla cómo se calcula el ancho y alto total del elemento:</p>
+        <ul>
+            <li><code>content-box</code> (valor por defecto): <code>width</code> y <code>height</code> se aplican solo al contenido. Padding y borde se añaden *adicionalmente* al tamaño total.</li>
+            <li><code>border-box</code>: <code>width</code> y <code>height</code> incluyen el contenido, el padding y el borde. Esto simplifica mucho los cálculos de layout, ya que si defines <code>width: 100px;</code>, el elemento (incluyendo su padding y borde) tendrá 100px de ancho.</li>
+        </ul>
+        <h4>Ejemplo aplicado a la tarjeta:</h4>
+        <div class="code-example">
+            <pre><code>
+/* Es una buena práctica aplicar border-box globalmente */
+html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit; /* Hereda de html */
+}
+
+.profile-card {
+  width: 300px; /* Ancho total de la tarjeta será 300px */
+  margin: 50px auto; /* Centrado horizontal */
+  padding: 20px; /* Espacio interno, no afecta al width total de 300px */
+  border: 1px solid #ddd; /* Borde, no afecta al width total de 300px */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 15px;
+  /* width y height aquí sí se refieren al contenido de la imagen
+     si la imagen misma no tiene padding o borde intrínseco. */
+}
+            </code></pre>
+            <button class="copy-btn" title="Copiar código"><i class="fas fa-copy"></i> Copiar</button>
+        </div>
+        <p><strong>Buena práctica:</strong> Muchos desarrolladores comienzan su CSS con la regla de <code>box-sizing: border-box;</code> mostrada arriba para un manejo de dimensiones más intuitivo.</p>
+    </section>
+
+    <!-- Texto y Fuentes -->
+    <section id="texto-fuentes" class="manual-section">
+        <h2><i class="fas fa-font"></i> Texto y Fuentes</h2>
+        <p>Las propiedades de texto y fuentes en CSS permiten personalizar la tipografía, tamaño, peso, alineación y espaciado del texto, mejorando la legibilidad y estética.</p>
+        <h4>Propiedades clave para fuentes:</h4>
+        <ul>
+            <li><code>font-family</code>: Define la lista de fuentes (ej. <code>"Helvetica Neue", Arial, sans-serif</code>). El navegador usará la primera que encuentre disponible.</li>
+            <li><code>font-size</code>: Define el tamaño del texto (ej. <code>1.5em</code>, <code>16px</code>, <code>1rem</code>).</li>
+            <li><code>font-weight</code>: Define el grosor de la fuente (ej. <code>normal</code>, <code>bold</code>, <code>400</code>, <code>700</code>).</li>
+            <li><code>font-style</code>: Define el estilo (ej. <code>normal</code>, <code>italic</code>, <code>oblique</code>).</li>
+            <li><code>font-variant</code>: Permite variantes como <code>small-caps</code>.</li>
+            <li><code>@font-face</code>: Para importar fuentes personalizadas.</li>
+        </ul>
+        <h4>Propiedades clave para texto:</h4>
+        <ul>
+            <li><code>color</code>: (Ya visto) Color del texto.</li>
+            <li><code>text-align</code>: Alinea el texto horizontalmente (<code>left</code>, <code>right</code>, <code>center</code>, <code>justify</code>).</li>
+            <li><code>line-height</code>: Controla el espaciado vertical entre líneas de texto (ej. <code>1.5</code>, <code>24px</code>).</li>
+            <li><code>letter-spacing</code>: Espaciado entre caracteres.</li>
+            <li><code>word-spacing</code>: Espaciado entre palabras.</li>
+            <li><code>text-decoration</code>: Añade decoración (<code>underline</code>, <code>overline</code>, <code>line-through</code>, <code>none</code>).</li>
+            <li><code>text-transform</code>: Cambia mayúsculas/minúsculas (<code>uppercase</code>, <code>lowercase</code>, <code>capitalize</code>).</li>
+            <li><code>text-shadow</code>: Añade sombra al texto.</li>
+        </ul>
+        <h4>Ejemplo aplicado a la tarjeta:</h4>
+        <div class="code-example">
+            <pre><code>
+body { /* Establecer una base para fuentes relativas */
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px; /* Base para unidades rem */
+  line-height: 1.6;
+}
+
+.profile-card {
+  /* Hereda la fuente de body, pero podríamos especificar una diferente */
+}
+
+.profile-name {
+  font-size: 1.5rem; /* 1.5 * 16px = 24px */
+  font-weight: bold;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+}
+
+.profile-bio {
+  font-size: 0.9rem; /* 0.9 * 16px = 14.4px */
+  color: #555;
+  line-height: 1.4; /* Relativo al font-size del propio elemento */
+  margin-bottom: 20px;
+}
+            </code></pre>
+            <button class="copy-btn" title="Copiar código"><i class="fas fa-copy"></i> Copiar</button>
+        </div>
+        <p><strong>Consejo:</strong> Usa fuentes legibles y combinaciones de tamaños que mantengan una jerarquía visual clara. Considera usar unidades relativas como <code>rem</code> para <code>font-size</code> para mejor accesibilidad y escalabilidad.</p>
+    </section>
+
+    <!-- Unidades en CSS -->
+    <section id="unidades" class="manual-section">
+        <h2><i class="fas fa-ruler-combined"></i> Unidades en CSS</h2>
+        <p>CSS ofrece diversas unidades para especificar longitudes, tamaños y otras magnitudes. Se dividen principalmente en absolutas y relativas.</p>
+        <h4>Unidades Absolutas:</h4>
+        <p>Son fijas y no cambian en relación a otros elementos o al viewport.</p>
+        <ul>
+            <li><code>px</code> (píxeles): La unidad más común. 1px es un punto en la pantalla. Útil para bordes o elementos que no deben escalar.</li>
+            <li>Otras (menos comunes para web): <code>pt</code> (puntos), <code>cm</code> (centímetros), <code>mm</code> (milímetros), <code>in</code> (pulgadas).</li>
+        </ul>
+        <h4>Unidades Relativas:</h4>
+        <p>Sus valores se calculan en base a otra propiedad o al tamaño del viewport.</p>
+        <ul>
+            <li><code>%</code> (porcentaje): Relativo al valor de la misma propiedad en el elemento padre (para <code>width</code>, <code>height</code>, <code>padding</code>, <code>margin</code>) o al tamaño de fuente del padre (para <code>font-size</code>).</li>
+            <li><code>em</code>: Relativo al <code>font-size</code> del elemento actual (si se usa para <code>font-size</code>, es relativo al padre). 1em = tamaño de fuente actual.</li>
+            <li><code>rem</code> (root em): Relativo al <code>font-size</code> del elemento raíz (<code><html></code>). Muy útil para crear layouts escalables y accesibles.</li>
+            <li><code>vw</code> (viewport width): 1vw = 1% del ancho del viewport.</li>
+            <li><code>vh</code> (viewport height): 1vh = 1% de la altura del viewport.</li>
+            <li><code>vmin</code>: 1vmin = 1% de la dimensión más pequeña del viewport (ancho o alto).</li>
+            <li><code>vmax</code>: 1vmax = 1% de la dimensión más grande del viewport (ancho o alto).</li>
+        </ul>
+        <h4>Ejemplo aplicado a la tarjeta (y otros elementos):</h4>
+        <div class="code-example">
+            <pre><code>
+html {
+  font-size: 16px; /* Base para unidades rem */
+}
+
+body {
+  font-size: 1rem; /* Equivale a 16px */
+  line-height: 1.5; /* Sin unidad, relativo al font-size del elemento */
+}
+
+.profile-card {
+  width: 90%; /* 90% del ancho de su contenedor padre */
+  max-width: 320px; /* Pero no más de 320px fijos */
+  padding: 1.25rem; /* 1.25 * 16px = 20px */
+  border: 1px solid #ccc; /* Borde de 1 pixel */
+}
+
+.profile-name {
+  font-size: 1.5rem; /* 1.5 * 16px = 24px */
+}
+
+.profile-pic {
+  width: 6.25rem; /* 6.25 * 16px = 100px */
+  height: 6.25rem;
+  margin-bottom: 1rem; /* 1 * 16px = 16px */
+}
+
+/* Para un banner que ocupe todo el ancho del viewport */
+.full-width-banner {
+  width: 100vw;
+  height: 50vh; /* Ocupa la mitad de la altura del viewport */
+}
+            </code></pre>
+            <button class="copy-btn" title="Copiar código"><i class="fas fa-copy"></i> Copiar</button>
+        </div>
+        <p><strong>Recomendación:</strong></p>
+        <ul>
+            <li>Usa <code>rem</code> para <code>font-size</code>, <code>padding</code>, <code>margin</code> y <code>width/height</code> de componentes para facilitar la escalabilidad global (accesibilidad).</li>
+            <li>Usa <code>px</code> para bordes o cuando necesites precisión de píxel que no deba escalar.</li>
+            <li>Usa <code>%</code> para layouts fluidos dentro de un contenedor.</li>
+            <li>Usa <code>vw</code>/<code>vh</code> para elementos que deban dimensionarse en relación al viewport (ej. héroes, modales a pantalla completa).</li>
+        </ul>
+    </section>
+
+    <!-- Propiedad Display -->
+    <section id="display" class="manual-section">
+        <h2><i class="fas fa-object-group"></i> Propiedad Display</h2>
+        <p>La propiedad <code>display</code> controla cómo se comporta un elemento en el flujo del documento, cómo interactúa con otros elementos y cómo se renderiza su caja.</p>
+        <h4>Valores principales:</h4>
+        <ul>
+            <li><code>block</code>: El elemento ocupa todo el ancho disponible en su contenedor y comienza en una nueva línea. Se le pueden aplicar <code>width</code>, <code>height</code>, <code>margin</code> (vertical y horizontal) y <code>padding</code>. (Ej: <code><div></code>, <code><p></code>, <code><h1></code>-<code><h6></code>, <code><ul></code>, <code><li></code>).</li>
+            <li><code>inline</code>: El elemento ocupa solo el espacio necesario para su contenido y no comienza en una nueva línea. No se le pueden aplicar <code>width</code>, <code>height</code>, ni <code>margin</code> vertical directamente (<code>margin-top</code>, <code>margin-bottom</code>). <code>padding</code> vertical puede tener efectos visuales inesperados. (Ej: <code><span></code>, <code><a></code>, <code><img></code> - aunque <code>img</code> es un caso especial llamado "replaced inline element").</li>
+            <li><code>inline-block</code>: Combina características de <code>inline</code> y <code>block</code>. El elemento fluye con el texto (como <code>inline</code>) pero se le pueden aplicar <code>width</code>, <code>height</code>, <code>margin</code> (vertical y horizontal) y <code>padding</code> (como <code>block</code>).</li>
+            <li><code>none</code>: Oculta el elemento completamente. No ocupa espacio y no es accesible.</li>
+            <li><code>flex</code>: Convierte el elemento en un contenedor flexible, permitiendo usar Flexbox para sus hijos directos. (Ver sección Flexbox).</li>
+            <li><code>grid</code>: Convierte el elemento en un contenedor grid, permitiendo usar CSS Grid para sus hijos directos. (Ver sección CSS Grid).</li>
+            <li><code>table</code>, <code>table-row</code>, <code>table-cell</code>, etc.: Permiten que los elementos se comporten como estructuras de tabla HTML.</li>
+        </ul>
+        <h4>Ejemplo aplicado a la tarjeta (y otros):</h4>
+        <div class="code-example">
+            <pre><code>
+/* Por defecto, <div> es 'block' */
+.profile-card {
+  display: block; /* (redundante aquí, pero para ilustrar) */
+  width: 300px;
+  margin: 0 auto; /* Funciona porque es block */
+}
+
+/* <a> es 'inline' por defecto */
+.profile-social-links a {
+  display: inline-block; /* Permite márgenes y padding, y que estén en línea */
+  margin: 0 8px;
+  padding: 5px;
+  color: #3498db;
+  font-size: 1.3em;
+}
+
+/* <span> es 'inline' por defecto */
+.highlight-text {
+  display: inline;
+  background-color: yellow; /* Afecta solo al texto */
+}
+
+.hidden-element {
+  display: none; /* El elemento no se mostrará ni ocupará espacio */
+}
+            </code></pre>
+            <button class="copy-btn" title="Copiar código"><i class="fas fa-copy"></i> Copiar</button>
+        </div>
+        <p><strong>Nota:</strong> <code>inline-block</code> es muy útil para elementos como botones, insignias o íconos que necesitan dimensiones y espaciado pero deben permanecer en el flujo del texto.</p>
+    </section>
+
+    <!-- Posicionamiento -->
+    <section id="posicionamiento" class="manual-section">
+        <h2><i class="fas fa-map-marker-alt"></i> Posicionamiento</h2>
+        <p>La propiedad <code>position</code>, junto con las propiedades <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code> y <code>z-index</code>, controla cómo se posiciona un elemento en la página.</p>
+        <h4>Valores principales de <code>position</code>:</h4>
+        <ul>
+            <li><code>static</code>: Es el valor por defecto. El elemento sigue el flujo normal del documento. Las propiedades <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code> y <code>z-index</code> no tienen efecto.</li>
+            <li><code>relative</code>: El elemento se posiciona relativo a su posición normal. Se puede desplazar usando <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code> sin afectar la posición de otros elementos (el espacio original se conserva). Crea un nuevo contexto de apilamiento.</li>
+            <li><code>absolute</code>: El elemento se saca del flujo normal del documento. Se posiciona con respecto a su ancestro posicionado más cercano (un ancestro con <code>position</code> diferente de <code>static</code>). Si no hay ancestro posicionado, se posiciona con respecto al bloque contenedor inicial (usualmente <code><html></code>). Otros elementos se comportan como si el elemento absoluto no existiera.</li>
+            <li><code>fixed</code>: Similar a <code>absolute</code>, pero el elemento se posiciona con respecto a la ventana del navegador (viewport). No se mueve con el scroll. También se saca del flujo normal.</li>
+            <li><code>sticky</code>: Es un híbrido entre <code>relative</code> y <code>fixed</code>. El elemento se trata como <code>relative</code> hasta que su bloque contenedor cruza un umbral especificado (ej. <code>top: 0</code>) durante el scroll, momento en el que se trata como <code>fixed</code>. Requiere al menos una propiedad de desplazamiento (<code>top</code>, <code>right</code>, <code>bottom</code>, o <code>left</code>).</li>
+        </ul>
+        <h4><code>z-index</code>:</h4>
+        <p>Controla el orden de apilamiento de los elementos posicionados (aquellos con <code>position</code> diferente de <code>static</code>). Un valor mayor de <code>z-index</code> coloca el elemento encima de otros con valor menor.</p>
+        <h4>Ejemplo (no aplicado directamente en la tarjeta final, pero ilustrativo):</h4>
+        <div class="code-example">
+            <pre><code>
+.contenedor-padre {
+  position: relative; /* Contexto para el hijo absoluto */
+  width: 300px;
+  height: 200px;
+  background-color: lightgray;
+}
+
+.elemento-absoluto {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100px;
+  height: 50px;
+  background-color: lightblue;
+  z-index: 1; /* Por encima de otros elementos en el mismo contexto de apilamiento */
+}
+
+.navegacion-fija {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: navy;
+  color: white;
+  padding: 10px;
+  z-index: 1000; /* Muy alto para estar encima de todo */
+}
+
+.encabezado-pegajoso {
+  position: sticky;
+  top: 0; /* Se pegará al borde superior del viewport al hacer scroll */
+  background-color: white;
+  padding: 10px;
+  z-index: 100;
+  border-bottom: 1px solid #ccc;
+}
+            </code></pre>
+            <button class="copy-btn" title="Copiar código"><i class="fas fa-copy"></i> Copiar</button>
+        </div>
+        <p><strong>Nota:</strong> En la tarjeta de perfil, usamos principalmente el flujo normal (<code>static</code>). El posicionamiento es crucial para menús desplegables, modales, tooltips, barras de navegación fijas/pegajosas, y diseños más complejos.</p>
+    </section>
+
+    <!-- Flexbox -->
+    <section id="flexbox" class="manual-section">
+        <h2><i class="fas fa-th-large"></i> Flexbox (Flexible Box Layout)</h2>
+        <p>Flexbox es un modelo de diseño unidimensional que ofrece una forma eficiente de distribuir, alinear y organizar el espacio entre ítems dentro de un contenedor, incluso cuando sus tamaños son desconocidos o dinámicos.</p>
+        <h4>Conceptos Clave:</h4>
+        <ul>
+            <li><strong>Contenedor Flex (Flex Container):</strong> El elemento padre al que se aplica <code>display: flex;</code> o <code>display: inline-flex;</code>.</li>
+            <li><strong>Ítems Flex (Flex Items):</strong> Los hijos directos del contenedor flex.</li>
+            <li><strong>Eje Principal (Main Axis):</strong> La dirección primaria en la que se colocan los ítems flex. Por defecto es horizontal (<code>row</code>).</li>
+            <li><strong>Eje Secundario (Cross Axis):</strong> Perpendicular al eje principal. Por defecto es vertical.</li>
+        </ul>
+        <h4>Propiedades Comunes del Contenedor Flex:</h4>
+        <ul>
+            <li><code>display: flex;</code> o <code>inline-flex;</code></li>
+            <li><code>flex-direction</code>: Define la dirección del eje principal (<code>row</code>, <code>row-reverse</code>, <code>column</code>, <code>column-reverse</code>).</li>
+            <li><code>justify-content</code>: Alinea los ítems en el eje principal (<code>flex-start</code>, <code>flex-end</code>, <code>center</code>, <code>space-between</code>, <code>space-around</code>, <code>space-evenly</code>).</li>
+            <li><code>align-items</code>: Alinea los ítems en el eje secundario (<code>stretch</code>, <code>flex-start</code>, <code>flex-end</code>, <code>center</code>, <code>baseline</code>).</li>
+            <li><code>flex-wrap</code>: Controla si los ítems deben envolverse en múltiples líneas (<code>nowrap</code>, <code>wrap</code>, <code>wrap-reverse</code>).</li>
+            <li><code>align-content</code>: Alinea las líneas de ítems (cuando hay <code>flex-wrap: wrap</code>) en el eje secundario. Similar a <code>justify-content</code> pero para el eje secundario y múltiples líneas.</li>
+            <li><code>gap</code>, <code>row-gap</code>, <code>column-gap</code>: Define el espacio entre ítems flex.</li>
+        </ul>
+        <h4>Propiedades Comunes de los Ítems Flex:</h4>
+        <ul>
+            <li><code>order</code>: Cambia el orden visual de los ítems.</li>
+            <li><code>flex-grow</code>: Factor de crecimiento si hay espacio extra.</li>
+            <li><code>flex-shrink</code>: Factor de encogimiento si no hay suficiente espacio.</li>
+            <li><code>flex-basis</code>: Tamaño inicial del ítem antes de distribuir el espacio.</li>
+            <li><code>flex</code>: Abreviatura para <code>flex-grow</code>, <code>flex-shrink</code> y <code>flex-basis</code>.</li>
+            <li><code>align-self</code>: Permite a un ítem individual anular el <code>align-items</code> del contenedor.</li>
+        </ul>
+        <h4>Ejemplo aplicado a la tarjeta:</h4>
+        <div class="code-example">
+            <pre><code>
+.profile-social-links {
+  display: flex;
+  justify-content: center; /* Centra los íconos horizontalmente */
+  align-items: center; /* Centra verticalmente si los íconos tuvieran alturas diferentes */
+  gap: 15px; /* Espacio entre los enlaces */
+  margin-bottom: 20px;
+}
+
+.profile-social-links a {
+  /* Los 'a' son ahora flex items.
+     No necesitan display: inline-block aquí, flex lo maneja. */
+}
+
+/* Otro ejemplo: un contenedor con un logo y un título */
+.card-header {
+    display: flex;
+    align-items: center; /* Alinear verticalmente logo y título */
+    gap: 10px;
+}
+.card-header .logo {
+    flex-shrink: 0; /* Evita que el logo se encoja */
+}
+.card-header .title {
+    flex-grow: 1; /* El título toma el espacio restante */
+}
+            </code></pre>
+            <button class="copy-btn" title="Copiar código"><i class="fas fa-copy"></i> Copiar</button>
+        </div>
+        <p><strong>Ventaja:</strong> Flexbox simplifica enormemente la creación de layouts complejos que antes requerían hacks o flotantes, especialmente para la alineación y distribución de espacio.</p>
+    </section>
+
+    <!-- CSS Grid Layout -->
+    <section id="grid-layout" class="manual-section">
+        <h2><i class="fas fa-border-all"></i> CSS Grid Layout</h2>
+        <p>CSS Grid Layout es un sistema de diseño bidimensional basado en cuadrículas, diseñado para crear layouts complejos tanto para páginas enteras como para componentes de interfaz de usuario. Permite controlar filas y columnas simultáneamente.</p>
+        <h4>Conceptos Clave:</h4>
+        <ul>
+            <li><strong>Contenedor Grid (Grid Container):</strong> El elemento al que se aplica <code>display: grid;</code> o <code>display: inline-grid;</code>.</li>
+            <li><strong>Ítems Grid (Grid Items):</strong> Los hijos directos del contenedor grid.</li>
+            <li><strong>Líneas de Grid (Grid Lines):</strong> Las líneas divisorias horizontales y verticales que forman la estructura de la cuadrícula.</li>
+            <li><strong>Pistas de Grid (Grid Tracks):</strong> El espacio entre dos líneas de grid adyacentes (columnas o filas).</li>
+            <li><strong>Celdas de Grid (Grid Cells):</strong> El espacio definido por la intersección de una fila y una columna.</li>
+            <li><strong>Áreas de Grid (Grid Areas):</strong> Un espacio rectangular que puede abarcar múltiples celdas, definido por cuatro líneas de grid.</li>
+        </ul>
+        <h4>Propiedades Comunes del Contenedor Grid:</h4>
+        <ul>
+            <li><code>display: grid;</code> o <code>inline-grid;</code></li>
+            <li><code>grid-template-columns</code>: Define las columnas de la cuadrícula (ej. <code>1fr 1fr 1fr</code>, <code>100px auto 2fr</code>, <code>repeat(3, 1fr)</code>).</li>
+            <li><code>grid-template-rows</code>: Define las filas de la cuadrícula (ej. <code>auto 100px 2fr</code>).</li>
+            <li><code>grid-template-areas</code>: Define áreas nombradas en la cuadrícula (ej. <code>"header header" "sidebar main"</code>).</li>
+            <li><code>gap</code>, <code>row-gap</code>, <code>column-gap</code>: Define el espacio entre las pistas de grid.</li>
+            <li><code>justify-items</code>: Alinea los ítems horizontalmente dentro de su celda (<code>start</code>, <code>end</code>, <code>center</code>, <code>stretch</code>).</li>
+            <li><code>align-items</code>: Alinea los ítems verticalmente dentro de su celda (<code>start</code>, <code>end</code>, <code>center</code>, <code>stretch</code>).</li>
+            <li><code>justify-content</code>: Distribuye el espacio de la cuadrícula si es más pequeña que el contenedor (similar a Flexbox).</li>
+            <li><code>align-content</code>: Distribuye el espacio de la cuadrícula si es más pequeña que el contenedor (similar a Flexbox).</li>
+        </ul>
+        <h4>Propiedades Comunes de los Ítems Grid:</h4>
+        <ul>
+            <li><code>grid-column-start</code>, <code>grid-column-end</code>, <code>grid-column</code>: Definen en qué línea de columna empieza/termina el ítem, o cuántas columnas abarca.</li>
+            <li><code>grid-row-start</code>, <code>grid-row-end</code>, <code>grid-row</code>: Similar para filas.</li>
+            <li><code>grid-area</code>: Asigna un ítem a un área nombrada o define su posición y tamaño.</li>
+            <li><code>justify-self</code>: Alinea un ítem individual horizontalmente dentro de su celda.</li>
+            <li><code>align-self</code>: Alinea un ítem individual verticalmente dentro de su celda.</li>
+        </ul>
+        <h4>Ejemplo de Layout Básico (no aplicado a la tarjeta actual):</h4>
+        <div class="code-example">
+            <pre><code>
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Columnas responsivas */
+  grid-template-rows: auto 1fr auto; /* Header, Main, Footer */
+  grid-template-areas:
+    "header header header"
+    "sidebar content content"
+    "footer footer footer";
+  gap: 20px;
+  min-height: 100vh; /* Para ocupar toda la altura de la pantalla */
+  padding: 20px;
+}
+
+.grid-item-header {
+  grid-area: header;
+  background-color: lightblue;
+}
+.grid-item-sidebar {
+  grid-area: sidebar;
+  background-color: lightgreen;
+}
+.grid-item-content {
+  grid-area: content;
+  background-color: lightcoral;
+}
+.grid-item-footer {
+  grid-area: footer;
+  background-color: lightgoldenrodyellow;
+}
+
+/* Para la tarjeta de perfil, si quisiéramos un layout interno más complejo: */
+/*
+.profile-card-grid-internal {
+    display: grid;
+    grid-template-columns: 100px 1fr; // Columna para la imagen, otra para el texto
+    grid-template-rows: auto auto 1fr auto; // Filas para nombre, título, bio, social/botón
+    gap: 10px;
+    align-items: start; // Alinear ítems al inicio de su celda verticalmente
+}
+.profile-pic { grid-row: 1 / span 3; } // Imagen ocupa 3 filas
+.profile-name { grid-column: 2; grid-row: 1; }
+.profile-title { grid-column: 2; grid-row: 2; }
+.profile-bio { grid-column: 2; grid-row: 3; }
+.profile-social-links { grid-column: 1 / -1; grid-row: 4; } // Ocupa todas las columnas en la fila 4
+.profile-contact-btn { grid-column: 1 / -1; grid-row: 5; }
+*/
+            </code></pre>
+            <button class="copy-btn" title="Copiar código"><i class="fas fa-copy"></i> Copiar</button>
+        </div>
+        <p><strong>Uso:</strong> CSS Grid es ideal para layouts de página y estructuras complejas. Flexbox es excelente para componentes y distribución unidimensional. A menudo se usan juntos.</p>
+    </section>
+
+    <!-- Pseudo-Clases y Pseudo-Elementos -->
+    <section id="pseudo" class="manual-section">
+        <h2><i class="fas fa-magic"></i> Pseudo-Clases y Pseudo-Elementos</h2>
+        <p>Las pseudo-clases y pseudo-elementos permiten estilizar elementos en estados específicos o partes concretas de un elemento, añadiendo interactividad y detalles visuales sin necesidad de JavaScript o HTML adicional.</p>
+        <h4>Pseudo-clases Comunes (<code>:selector</code>):</h4>
+        <p>Seleccionan elementos basados en su estado o posición.</p>
+        <ul>
+            <li><code>:hover</code>: Aplica estilos cuando el cursor del mouse pasa por encima del elemento.</li>
+            <li><code>:focus</code>: Aplica estilos cuando un elemento (ej. input, botón, enlace) recibe el foco (al hacer clic o navegar con Tab).</li>
+            <li><code>:active</code>: Aplica estilos cuando un elemento está siendo activado (ej. un botón presionado).</li>
+            <li><code>:visited</code>: Aplica estilos a enlaces que ya han sido visitados. (Limitado por privacidad).</li>
+            <li><code>:link</code>: Aplica estilos a enlaces no visitados.</li>
+            <li><code>:disabled</code>: Selecciona elementos de formulario deshabilitados.</li>
+            <li><code>:checked</code>: Selecciona checkboxes o radio buttons marcados.</li>
+            <li><code>:nth-child(n)</code>: Selecciona elementos según su posición entre hermanos (ej. <code>:nth-child(2)</code>, <code>:nth-child(odd)</code>, <code>:nth-child(2n+1)</code>).</li>
+            <li><code>:first-child</code>, <code>:last-child</code>: Selecciona el primer o último hijo.</li>
+            <li><code>:not(selector)</code>: Selecciona elementos que NO coinciden con el selector interno.</li>
+        </ul>
+        <h4>Pseudo-elementos Comunes (<code>::selector</code>):</h4>
+        <p>Permiten estilizar partes específicas de un elemento o insertar contenido.</p>
+        <ul>
+            <li><code>::before</code>: Inserta contenido generado antes del contenido real del elemento. Requiere la propiedad <code>content</code>.</li>
+            <li><code>::after</code>: Inserta contenido generado después del contenido real del elemento. Requiere la propiedad <code>content</code>.</li>
+            <li><code>::first-letter</code>: Estiliza la primera letra de un texto dentro de un elemento de bloque.</li>
+            <li><code>::first-line</code>: Estiliza la primera línea de un texto dentro de un elemento de bloque.</li>
+            <li><code>::selection</code>: Estiliza la parte del documento que ha sido resaltada (seleccionada) por el usuario.</li>
+            <li><code>::placeholder</code>: Estiliza el texto placeholder en campos de formulario.</li>
+        </ul>
+        <h4>Ejemplo aplicado a la tarjeta:</h4>
+        <div class="code-example">
+            <pre><code>
+.profile-contact-btn:hover {
+  background-color: #2980b9; /* Azul más oscuro al pasar el mouse */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.profile-contact-btn:focus {
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
+}
+
+.profile-social-links a:hover {
+  color: #2c3e50; /* Color más oscuro */
+  transform: scale(1.1); /* Zoom sutil */
+}
+
+/* Añadir un pequeño icono decorativo antes del nombre */
+.profile-name::before {
+  content: "👤 "; /* O un icono de FontAwesome: content: "\f007"; font-family: "Font Awesome 6 Free"; font-weight: 900; margin-right: 5px; */
+  /* color: var(--secondary-accent); */
+}
+
+/* Estilizar la primera letra de la biografía */
+.profile-bio::first-letter {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #3498db;
+}
+            </code></pre>
+            <button class="copy-btn" title="Copiar código"><i class="fas fa-copy"></i> Copiar</button>
+        </div>
+        <p><strong>Nota:</strong> La sintaxis con doble dos puntos (<code>::</code>) es la estándar para pseudo-elementos en CSS3 para distinguirlos de las pseudo-clases, aunque los navegadores suelen soportar la sintaxis antigua de un solo dos puntos (<code>:</code>) por retrocompatibilidad.</p>
+    </section>
+
+    <!-- Transiciones -->
+    <section id="transiciones" class="manual-section">
+        <h2><i class="fas fa-exchange-alt"></i> Transiciones</h2>
+        <p>Las transiciones CSS permiten animar cambios en los valores de las propiedades CSS de manera suave y gradual a lo largo de un período de tiempo, mejorando la experiencia del usuario al interactuar con elementos.</p>
+        <h4>Propiedades de Transición:</h4>
+        <ul>
+            <li><code>transition-property</code>: Especifica la(s) propiedad(es) CSS a las que se aplicará la transición (ej. <code>background-color</code>, <code>opacity</code>, <code>transform</code>, <code>all</code>).</li>
+            <li><code>transition-duration</code>: Define el tiempo que durará la transición (ej. <code>0.3s</code>, <code>300ms</code>).</li>
+            <li><code>transition-timing-function</code>: Define la curva de aceleración de la transición (cómo progresa la animación en el tiempo). Valores comunes:
+                <ul>
+                    <li><code>ease</code> (defecto): Inicio lento, luego rápido, final lento.</li>
+                    <li><code>linear</code>: Velocidad constante.</li>
+                    <li><code>ease-in</code>: Inicio lento.</li>
+                    <li><code>ease-out</code>: Final lento.</li>
+                    <li><code>ease-in-out</code>: Inicio y final lentos.</li>
+                    <li><code>cubic-bezier(n,n,n,n)</code>: Permite definir una curva personalizada.</li>
+                </ul>
+            </li>
+            <li><code>transition-delay</code>: Especifica un retraso antes de que comience la transición (ej. <code>0.1s</code>).</li>
+        </ul>
+        <h4>Sintaxis Abreviada (<code>transition</code>):</h4>
+        <p><code>transition: [property] [duration] [timing-function] [delay];</code></p>
+        <p>El orden no es estricto, pero se recomienda mantener uno consistente. La duración es obligatoria si se usa la forma abreviada.</p>
+        <h4>Ejemplo aplicado a la tarjeta:</h4>
+        <div class="code-example">
+            <pre><code>
+.profile-contact-btn {
+  background-color: #3498db;
+  color: white;
+  /* Transición para el color de fondo y la sombra */
+  transition-property: background-color, box-shadow;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+  /* Forma abreviada:
+     transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out;
+     O si todas las propiedades comparten la misma duración/timing:
+     transition: all 0.3s ease-out; (menos performante si muchas propiedades cambian)
+  */
+}
+.profile-contact-btn:hover {
+  background-color: #2980b9;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+.profile-social-links a {
+  color: #3498db;
+  transform: scale(1);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.profile-social-links a:hover {
+  color: #2c3e50;
+  transform: scale(1.15);
+}
+
+.profile-pic {
+  transform: scale(1) rotate(0deg);
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Efecto 'rebote' */
+}
+.profile-pic:hover {
+  transform: scale(1.05) rotate(5deg);
+}
+            </code></pre>
+            <button class="copy-btn" title="Copiar código"><i class="fas fa-copy"></i> Copiar</button>
+        </div>
+        <p><strong>Buena práctica:</strong> Usa transiciones en propiedades que no afecten el flujo del documento (layout) siempre que sea posible, como <code>transform</code> y <code>opacity</code>, para un mejor rendimiento. Evita transicionar propiedades como <code>width</code>, <code>height</code>, <code>margin</code>, o <code>padding</code> en elementos complejos si causa "reflows" costosos.</p>
+    </section>
+
+    <!-- Animaciones CSS -->
+    <section id="animaciones" class="manual-section">
+        <h2><i class="fas fa-rocket"></i> Animaciones CSS</h2>
+        <p>Las animaciones CSS, a diferencia de las transiciones, permiten crear secuencias de animación más complejas con múltiples pasos (keyframes). Son ideales para efectos visuales, indicadores de carga, o para dar vida a elementos de la interfaz.</p>
+        <h4>Definición de Keyframes (<code>@keyframes</code>):</h4>
+        <p>Se define una animación usando la regla <code>@keyframes</code>, dándole un nombre y especificando los estilos en diferentes puntos de la secuencia (0% a 100%, o <code>from</code>/<code>to</code>).</p>
+        <pre><code>
+@keyframes nombre-animacion {
+  0% { /* o from */
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% { /* o to */
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+        </code></pre>
+        <h4>Propiedades de Animación:</h4>
+        <ul>
+            <li><code>animation-name</code>: El nombre de la animación definida con <code>@keyframes</code>.</li>
+            <li><code>animation-duration</code>: Duración de un ciclo de la animación.</li>
+            <li><code>animation-timing-function</code>: Curva de aceleración (similar a transiciones: <code>ease</code>, <code>linear</code>, <code>cubic-bezier()</code>, etc.).</li>
+            <li><code>animation-delay</code>: Retraso antes de que comience la animación.</li>
+            <li><code>animation-iteration-count</code>: Número de veces que se repetirá la animación (ej. <code>3</code>, <code>infinite</code>).</li>
+            <li><code>animation-direction</code>: Dirección de la animación en ciclos sucesivos (<code>normal</code>, <code>reverse</code>, <code>alternate</code>, <code>alternate-reverse</code>).</li>
+            <li><code>animation-fill-mode</code>: Define qué estilos se aplican antes de que comience la animación o después de que termine (<code>none</code>, <code>forwards</code>, <code>backwards</code>, <code>both</code>).</li>
+            <li><code>animation-play-state</code>: Permite pausar o reanudar la animación (<code>running</code>, <code>paused</code>).</li>
+        </ul>
+        <h4>Sintaxis Abreviada (<code>animation</code>):</h4>
+        <p><code>animation: [name] [duration] [timing-function] [delay] [iteration-count] [direction] [fill-mode] [play-state];</code></p>
+        <h4>Ejemplo aplicado a la tarjeta (una animación de entrada sutil):</h4>
+        <div class="code-example">
+            <pre><code>
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.profile-card {
+  /* ... otros estilos de la tarjeta ... */
+  /* Aplicar la animación */
+  animation-name: fadeInCard;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: backwards; /* Aplica el estado 'from' antes de que empiece */
+  /* Forma abreviada:
+     animation: fadeInCard 0.7s ease-out backwards;
+  */
+}
+
+/* Ejemplo de animación de carga para un botón */
+@keyframes pulseBorder {
+  0% { box-shadow: 0 0 0 0px rgba(52, 152, 219, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(52, 152, 219, 0); }
+  100% { box-shadow: 0 0 0 0px rgba(52, 152, 219, 0); }
+}
+
+.profile-contact-btn.loading {
+  animation: pulseBorder 1.5s infinite cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+            </code></pre>
+            <button class="copy-btn" title="Copiar código"><i class="fas fa-copy"></i> Copiar</button>
+        </div>
+        <p><strong>Consideraciones:</strong></p>
+        <ul>
+            <li>Las animaciones pueden ser más intensivas en recursos que las transiciones. Úsalas con prudencia.</li>
+            <li>Al igual que con las transiciones, animar <code>transform</code> y <code>opacity</code> suele ser más performante.</li>
+            <li><code>animation-fill-mode: forwards;</code> es útil para que el elemento conserve los estilos del último keyframe una vez terminada la animación.</li>
+        </ul>
+    </section>
+
+    <!-- Diseño Responsive -->
+    <section id="responsive" class="manual-section">
+        <h2><i class="fas fa-mobile-alt"></i> Diseño Responsive (Responsive Web Design - RWD)</h2>
+        <p>El diseño web responsivo asegura que una página web se vea y funcione bien en una amplia variedad de dispositivos y tamaños de pantalla (desde teléfonos móviles hasta computadoras de escritorio). Se basa principalmente en layouts flexibles, imágenes flexibles y Media Queries.</p>
+        <h4>Principios Clave:</h4>
+        <ul>
+            <li><strong>Layouts Flexibles (Fluid Grids):</strong> Usar unidades relativas como porcentajes (<code>%</code>), <code>vw</code>, <code>vh</code>, <code>rem</code>, <code>em</code> para anchos, altos, márgenes y paddings, en lugar de unidades absolutas fijas como píxeles (<code>px</code>). Flexbox y CSS Grid son fundamentales aquí.</li>
+            <li><strong>Imágenes Flexibles:</strong> Asegurar que las imágenes no excedan el ancho de su contenedor. Comúnmente se usa: <br><code>img { max-width: 100%; height: auto; }</code></li>
+            <li><strong>Media Queries:</strong> Permiten aplicar diferentes estilos CSS basados en las características del dispositivo, como el ancho/alto del viewport, orientación, resolución, etc.</li>
+        </ul>
+        <h4>Media Queries:</h4>
+        <p>Sintaxis: <code>@media [media-type] (condición) { /* estilos CSS aquí */ }</code></p>
+        <ul>
+            <li><code>media-type</code>: Opcional (ej. <code>screen</code>, <code>print</code>, <code>all</code>). Si se omite, por defecto es <code>all</code>.</li>
+            <li><code>condición</code>: Una o más expresiones que evalúan características del medio (ej. <code>max-width: 768px</code>, <code>min-width: 480px</code>, <code>orientation: landscape</code>).</li>
+            <li>Ejemplo: <code>@media screen and (max-width: 480px) { /* Estilos para pantallas de 480px de ancho o menos */ }</code></li>
+        </ul>
+        <h4>Viewport Meta Tag:</h4>
+        <p>Esencial para que el diseño responsivo funcione correctamente en móviles. Se añade en el <code><head></code> del HTML:</p>
+        <code><meta name="viewport" content="width=device-width, initial-scale=1.0"></code>
+        <ul>
+            <li><code>width=device-width</code>: Establece el ancho del viewport al ancho del dispositivo.</li>
+            <li><code>initial-scale=1.0</code>: Establece el nivel de zoom inicial cuando la página se carga por primera vez.</li>
+        </ul>
+        <h4>Ejemplo aplicado a la tarjeta:</h4>
+        <div class="code-example">
+            <pre><code>
+/* Estilos base (Mobile First) */
+.profile-card {
+  width: 90%; /* Ocupa el 90% del a
+  ncho en móviles */
+  max-width: 320px; /* Evita que sea demasiado ancha en pantallas más grandes si no hay otras reglas */
+  margin: 20px auto;
+  padding: 15px;
+}
+.profile-name {
+  font-size: 1.3rem;
+}
+.profile-pic {
+  width: 80px;
+  height: 80px;
+}
+
+/* Tabletas y pantallas pequeñas (ej. > 480px) */
+@media (min-width: 481px) {
+  .profile-card {
+    padding: 20px;
+  }
+  .profile-name {
+    font-size: 1.5rem;
+  }
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Escritorio (ej. > 769px) */
+@media (min-width: 769px) {
+  .profile-card {
+    width: 350px; /* Un ancho fijo mayor para escritorio */
+    /* O podríamos usar un layout más complejo con Grid o Flexbox para varios cards */
+  }
+}
+            </code></pre>
+            <button class="copy-btn" title="Copiar código"><i class="fas fa-copy"></i> Copiar</button>
+        </div>
+        <p><strong>Consejo "Mobile First":</strong> Es una estrategia popular diseñar primero para las pantallas más pequeñas (móviles) y luego usar media queries (con <code>min-width</code>) para añadir complejidad y adaptar el diseño a pantallas más grandes. Esto tiende a resultar en un CSS más limpio y performante.</p>
+    </section>
+
+        <section id="practica" class="manual-section">
+            <h2><i class="fas fa-vial"></i> ¡A Practicar! Editor Interactivo</h2>
+            <p>Modifica el CSS a continuación para estilizar la tarjeta de perfil. El HTML de la tarjeta es el mismo que se mostró en la introducción. ¡Intenta usar variables, unidades <code>rem</code> o incluso una pequeña animación!</p>
+            
+            <div class="interactive-editor-container">
+                <div class="editor-panel html-panel">
+                    <h3>HTML (Base para tu CSS)</h3>
+                    <div id="html-structure-preview">
+                        <!-- Aquí se insertará el HTML de la tarjeta de perfil con JS -->
+                    </div>
+                </div>
+
+                <div class="editor-panel css-panel">
+                    <h3>Tu CSS</h3>
+                    <textarea id="css-editor-live" placeholder="/* Escribe tu CSS aquí para estilizar la tarjeta de arriba */"></textarea>
+                    <button id="apply-css-live-btn"><i class="fas fa-play"></i> Aplicar Estilos</button>
+                    <button id="reset-css-live-btn"><i class="fas fa-undo"></i> Resetear CSS</button>
+                </div>
+            </div>
+            <style id="dynamic-styles-live"></style> <!-- Para aplicar los estilos del editor -->
+        </section>
+
+        <section id="proyecto-final" class="manual-section">
+            <h2><i class="fas fa-check-circle"></i> Proyecto Final: Tarjeta de Perfil Completa</h2>
+            <p>Combinando todo lo aprendido, aquí está la tarjeta de perfil con todos los estilos aplicados. Puedes ver el código HTML (el mismo de la introducción) y el CSS completo, que ahora incluye variables, unidades relativas y una sutil animación.</p>
+            
+            <div class="final-project-showcase">
+                <div class="profile-card-final-container">
+                    <!-- La tarjeta de perfil final se insertará aquí con JS -->
+                </div>
+                
+                <div class="code-tabs">
+                    <button class="tab-button active" onclick="showTab(event, 'final-html')">HTML</button>
+                    <button class="tab-button" onclick="showTab(event, 'final-css')">CSS Completo</button>
+                </div>
+
+                <div id="final-html" class="tab-content" style="display:block;">
+                    <h4>HTML de la Tarjeta</h4>
+                    <div class="code-example">
+                        <pre><code id="final-html-code" class="language-html">
+                        </code></pre>
+                         <button class="copy-btn" title="Copiar HTML"><i class="fas fa-copy"></i></button>
+                    </div>
+                </div>
+                <div id="final-css" class="tab-content">
+                    <h4>CSS Completo Aplicado</h4>
+                     <div class="code-example">
+                        <pre><code id="final-css-code" class="language-css">
+                        </code></pre>
+                        <button class="copy-btn" title="Copiar CSS"><i class="fas fa-copy"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Manual Interactivo de CSS. Hecho con <i class="fas fa-heartbeat"></i> y código.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
